@@ -1,0 +1,38 @@
+# Dependências do Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+logs/*.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diretórios de ambientes
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Arquivos de variáveis de ambiente
+.env
+
+# Cache do npm e yarn
+.npm/
+.yarn/
+.yarn-cache/
+
+# Diretórios de compilação e artefatos
+dist/
+build/
+.cache/
+
+# Arquivos de lock
+package-lock.json
+yarn.lock
+
