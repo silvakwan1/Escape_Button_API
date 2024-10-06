@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aceita</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="content">
+      <!-- <img
+        src="https://media.tenor.com/rlvsujbkhtsAAAAC/milk-and-mocha-bear-couple.gif"
+        alt=""
+      /> -->
+      <img
+        id="img"
+        src="https://media.tenor.com/pGBE8W0bk5oAAAAC/searching-lost.gif"
+        alt=""
+      />
+      <div class="text">
+        <p>To com soldade!</p>
+        <h1 id="text">Volta a falar cmg?</h1>
+      </div>
+      <div class="botoes">
+        <a id="link" href="https://www.youtube.com/shorts/3iXpRM0T_Ew">
+          <button>sim</button></a
+        >
+        <button class="btn2">não</button>
+      </div>
+    </div>
+
+    <script>
+      const txt = document.querySelector("#text");
+      const img = document.querySelector("#img");
+      const link = document.querySelector("#link");
+
+      (async function () {
+        const params = new URLSearchParams(window.location.search);
+
+        const id = params.get("id");
+
+        if (!id) {
+          console.error("ID não fornecido na URL");
+          return;
+        }
+
+        try {
+          const response = await fetch(`http://localhost:3000/getdate/${id}`);
+
+          if (!response.ok) {
+            console.error(
+              "Erro na requisição:",
+              response.status,
+              response.statusText
+            );
+          }
+
+          const data = await response.json();
+          const { text, lestUrl, imgUrl } = await data;
+          console.log(data);
+          console.log(text);
+          console.log(imgUrl);
+          console.log(txt);
+          console.log(lestUrl);
+
+          txt.innerHTML = text;
+          img.src = imgUrl;
+          link.href = lestUrl;
+        } catch (error) {
+          console.error("Erro ao buscar dados:", error);
+        }
+      })();
+    </script>
+
+    <script src="./javaScript/script.js"></script>
+  </body>
+</html>
