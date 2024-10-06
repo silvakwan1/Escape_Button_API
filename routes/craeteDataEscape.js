@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const DataEscape = require("../config/dataEscape");
+const DataEscape = require("../models/dataEscape");
 
 router.post("/", async (req, res, next) => {
   const { text, lestUrl, imgUrl } = req.body;

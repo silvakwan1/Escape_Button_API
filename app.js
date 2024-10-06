@@ -6,7 +6,8 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
 const indexRouter = require("./routes/index");
-const craeteDataEscape = require("./routes/craeteDataEscape");
+const craeteDataEscapeRouter = require("./routes/craeteDataEscape");
+const getDateEscapeRouter = require("./routes/getDateEscape");
 
 const app = express();
 const connectToDatabase = require("./db");
@@ -25,7 +26,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/craeteDataEscape", craeteDataEscape);
+app.use("/craeteDataEscape", craeteDataEscapeRouter);
+app.use("/getdate", getDateEscapeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

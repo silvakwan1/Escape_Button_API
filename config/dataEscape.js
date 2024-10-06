@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 
 const dataEscapeSchema = new mongoose.Schema({
+  paragraph: {
+    type: String,
+  },
   text: {
     type: String,
     required: true,
-    trim: true,
   },
   lestUrl: {
     type: String,
