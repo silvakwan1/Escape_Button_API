@@ -10,13 +10,16 @@ document
     const imgUrl = document.getElementById("imgUrl").value;
 
     try {
-      const response = await fetch("http://localhost:3000/craeteDataEscape", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title, text, lestUrl, imgUrl }),
-      });
+      const response = await fetch(
+        "https://escape-button-api-silvakwan1s-projects.vercel.app/craeteDataEscape",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title, text, lestUrl, imgUrl }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(

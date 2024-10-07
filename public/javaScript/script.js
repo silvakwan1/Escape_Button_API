@@ -13,9 +13,10 @@ const titlee = document.querySelector("#title");
     window.location.href = "/erro.html";
     return;
   }
-
   try {
-    const response = await fetch(`http://localhost:3000/getdate/${id}`);
+    const response = await fetch(
+      `https://escape-button-api-silvakwan1s-projects.vercel.app/getdate/${id}`
+    );
 
     if (!response.ok) {
       console.error(
