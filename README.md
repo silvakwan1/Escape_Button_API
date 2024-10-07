@@ -9,10 +9,16 @@ Um dos principais desafios foi o uso do MongoDB para salvar os dados e, posterio
 ## Funcionalidades
 
 - **Criar**: Permite que os usuários criem um novo botão de escape com um JSON que contém:
-  - `título`: "me ver 10 pilas?"
-  - `texto`: "você poderia me arrumar 10 conto?"
-  - `URLleste`: "https://exemplo.com"
-  - `URLimagem`: "https://exemplo.png"
+
+  ```json
+  {
+    "title": "me ver 10 pilas?",
+    "text": "você poderia me arrumar 10 conto?",
+    "lestUrl": "https://exemplo.com",
+    "imgUrl": "https://exemplo.png"
+  }
+  ```
+
 - **Buscar**: Possibilita a recuperação de dados de um botão de escape específico pelo ID.
 
 ## Tecnologias Utilizadas
