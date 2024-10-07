@@ -1,17 +1,40 @@
-const btn = document.querySelector(".btn2");
+const paragraph = document.querySelector("#text");
+const img = document.querySelector("#img");
+const link = document.querySelector("#link");
+const titlee = document.querySelector("#title");
 
-btn.addEventListener("mouseenter", mudei);
-btn.addEventListener("touchstart", mudei);
-btn.addEventListener("click", mudei);
+(async function () {
+  const params = new URLSearchParams(window.location.search);
 
-function mudei() {
-  const width = window.innerWidth - 200;
-  const height = window.innerHeight - 200;
+  const id = params.get("id");
 
-  const maxY = Math.random() * height;
-  const maxX = Math.random() * width;
+  if (!id) {
+    console.error("ID não fornecido na URL");
+    window.location.href = "/erro.html";
+    return;
+  }
 
-  btn.style.position = "absolute";
-  btn.style.left = maxX + "px";
-  btn.style.top = maxY + "px";
-}
+  try {
+    const response = await fetch(`http://localhost:3000/getdate/${id}`);
+
+    if (!response.ok) {
+      console.error(
+        "Erro na requisição:",
+        response.status,
+        response.statusText
+      );
+      window.location.href = "/erro.html";
+      return;
+    }
+
+    const data = await response.json();
+    const { title, text, lestUrl, imgUrl } = data;
+    titlee.innerHTML = title;
+    paragraph.innerHTML = text;
+    img.src = imgUrl;
+    link.href = lestUrl;
+  } catch (error) {
+    console.error("Erro ao buscar dados:", error);
+    window.location.href = "/erro.html";
+  }
+})();
