@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const dataEscapeSchema = new mongoose.Schema({
-  paragraph: {
+  title: {
     type: String,
   },
   text: {
