@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const dbUser = process.env.DB_USER;
-const dbPass = process.env.DB_PASS;
+const DB_PASS;
 const dbName = "EscapeButtonAPI";
 
-const url = `mongodb+srv://${dbUser}:${dbPass}@cluster0.q0hds.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=Cluster0`;
+const url = process.env.MONGODB_URI
+
+`mongodb+srv://${dbUser}:${dbPass}@cluster0.q0hds.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=Cluster0`;
 
 async function connectToDatabase() {
   try {
