@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const indexRouter = require("./routes/index");
+const indexRouter = require("./routes/test");
 const craeteDataEscapeRouter = require("./routes/craeteDataEscape");
 const getDateEscapeRouter = require("./routes/getDateEscape");
 
